@@ -1,3 +1,9 @@
+@theme {
+  --font-sans: 'Jakarta', sans-serif;
+}
+
+@import "tailwindcss";
+
 @font-face {
   font-family: 'Jakarta';
   src: url('./assets/fonts/PlusJakartaSans-Light.ttf') format('truetype');
@@ -20,12 +26,6 @@
   font-family: 'Jakarta';
   src: url('./assets/fonts/PlusJakartaSans-ExtraBold.ttf') format('truetype');
   font-weight: 800;
-}
-
-@import "tailwindcss";
-
-@theme {
-  --font-sans: 'Jakarta', sans-serif;
 }
 
 html {
