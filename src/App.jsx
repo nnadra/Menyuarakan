@@ -10,10 +10,14 @@ function App() {
   //kalau kita 'npm run dev' nanti dia bakal running file ini
   //jadi kita import component yang kita mau pake disini, kita buat routing disini
   return (
-    <div>
-      <Navbar/>
-      <LandingPage/>
-      <Footer/>
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+
+      <div className="flex-1">
+        <LandingPage />
+      </div>
+
+      <Footer />
     </div>
   )
 }
