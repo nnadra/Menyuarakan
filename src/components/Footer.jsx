@@ -2,7 +2,7 @@ import { Send } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#009A76] text-white px-6 py-12 md:px-16 lg:px-24">
+    <footer className="bg-[#009A76] text-white px-6 py-12 md:px-16 lg:px-24 font-sans">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
 
         {/* Left: Logo + Quote */}
@@ -45,7 +45,6 @@ const Footer = () => {
 
       </div>
 
-      {/* Bottom line */}
       <div className="border-t border-white/50 mt-12 pt-6 text-center text-sm">
         Copyright © {new Date().getFullYear()} Menyuarakan. All rights reserved
       </div>
@@ -53,4 +52,4 @@ const Footer = () => {
   );
 };
 
-export default Footer
+export default Footer;

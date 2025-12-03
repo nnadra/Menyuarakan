@@ -2,7 +2,7 @@ import React from 'react'
 
 const Navbar = () => {
   return (
-      <div className="flex items-center justify-between px-10 py-5">
+    <div className="flex items-center justify-between px-10 py-5 font-sans">
       
       {/* Logo */}
       <div className="bg-lime-100 px-6 py-3 rounded">
@@ -15,7 +15,7 @@ const Navbar = () => {
       <div className="flex items-center gap-12 text-lg text-black">
         <span className="font-semibold">Home</span>
         <span>About Us</span>
-        <span>How it aWorks</span>
+        <span>How it Works</span>
         <span>Report</span>
       </div>
 
