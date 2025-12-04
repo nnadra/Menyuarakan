@@ -1,72 +1,80 @@
 import React from 'react'
 import { motion } from "framer-motion";
-import { Send } from 'lucide-react';
+import { Send, Mouse } from 'lucide-react';
 
 import Card1 from '../assets/images/card-1.svg'
 import Card2 from '../assets/images/card-2.svg'
 import Card3 from '../assets/images/card-3.svg'
 import AboutUsImg from '../assets/images/aboutUsImg.svg'
 import BannerImg from '../assets/images/bannerImg.svg'
+import HowItWorks from '../components/HowItWorks';
 
 
 const LandingPage = () => {
   return (
     <div>
       {/* HERO SECTION */}
-    <section className="w-full flex flex-col items-center text-center font-sans mt-18 mb-15 px-4">
+    <section className="w-full flex flex-col items-center text-center font-sans py-16 md:py-24 px-4">
 
-      <h1 className="text-[44px] leading-tight font-semibold text-green-900">
-        Dorong perubahan untuk lingkungan, <br /> mulai dari laporanmu.
-      </h1>
+        <h1 className="text-[32px] md:text-[44px] leading-tight font-semibold text-[#003327]">
+          Dorong perubahan untuk lingkungan, <br className="hidden md:block" /> mulai dari laporanmu.
+        </h1>
 
-      <p className="text-gray-500 mt-6 max-w-2xl">
-        Mulai dari satu foto, laporanmu bisa bantu memperbaiki lingkungan,
-        meningkatkan kesadaran, dan mendorong tindakan nyata di lingkungan kamu.
-      </p>
+        <p className="text-gray-500 mt-4 md:mt-6 max-w-2xl text-base md:text-lg">
+          Mulai dari satu foto, laporanmu bisa bantu memperbaiki lingkungan,
+          meningkatkan kesadaran, dan mendorong tindakan nyata di lingkungan kamu.
+        </p>
 
-      {/* SCROLL DOWN BUTTON */}
-      <div className="flex flex-col items-center mt-10 animate-bounce">
-        <div className="w-12 h-12 border border-green-300 rounded-full flex items-center justify-center text-green-700 font-semibold">
-          0
-        </div>
-        <span className="text-green-700 text-sm mt-2">Scroll Down</span>
-      </div>
-
-      {/* CARDS WRAPPER */}
-      <div className="relative flex items-center justify-center mt-18">
-
-
-        <div className="
-         rounded-3xl
-          w-[320px] rotate-[-8deg]
-          transition-all duration-300 
-          hover:rotate-2 hover:-translate-y-2 
-        ">
-          <img src={Card1} alt="Card1" className="w-full" />
+        <div className="flex flex-col items-center mt-8 md:mt-10 animate-bounce cursor-pointer">
+          <div className="w-12 h-12 bg-[#009A76]/10 rounded-full flex items-center justify-center text-[#009A76] font-semibold">
+            <Mouse size={20} className="transform" />
+          </div>
+          <span className="text-[#009A76] text-sm mt-2">Scroll Down</span>
         </div>
 
+        {/* CARDS WRAPPER */}
+        <div className="relative flex flex-col md:flex-row items-center justify-center mt-12 md:mt-18 max-w-4xl w-full">
 
-        <div className="
-        rounded-3xl
-          w-[330px] z-10
-          transition-all duration-300 
-          hover:-translate-y-3 hover:shadow-xl
-        ">
-          <img src={Card2} alt="Card2" className="w-full" />
-        </div>
-
-
-        <div className="
+          {/* Card 1 */}
+          <div className="
+            relative z-10
             rounded-3xl
-            w-[320px] rotate-[8deg]
+            w-[320px] 
             transition-all duration-300 
             hover:rotate-2 hover:-translate-y-2 
-        ">
-          <img src={Card3} alt="Card3" className="w-full" />
-        </div>
+            mb-0
+          ">
+            <img src={Card1} alt="Card1" className="w-full" />
+          </div>
 
-      </div>
-        </section>
+
+          {/* Card 2 (Tengah) */}
+          <div className="
+            relative z-9
+            rounded-3xl
+            w-[320px] md:w-[330px] 
+            transition-all duration-300 
+            hover:-translate-y-3 hover:shadow-xl
+            -mt-1 
+          ">
+            <img src={Card2} alt="Card2" className="w-full" />
+          </div>
+
+
+          {/* Card 3 */}
+          <div className="
+              relative z-7
+              rounded-3xl
+              w-[320px] 
+              transition-all duration-300 
+              hover:rotate-2 hover:-translate-y-2 
+              md:mt-0 
+          ">
+            <img src={Card3} alt="Card3" className="w-full" />
+          </div>
+
+        </div>
+      </section>
 
 
     {/* ABOUT SECTION */}
@@ -81,11 +89,11 @@ const LandingPage = () => {
           viewport={{ once: true }}
           className="space-y-5"
         >
-          <span className="bg-green-200 px-4 py-2 rounded-full text-black w-fit block">
+          <span className="bg-[#CCFFF3] px-4 py-2 rounded-full text-[#003327] w-fit block">
             About Us
           </span>
 
-          <h2 className="text-3xl md:text-4xl font-bold leading-tight text-green-900">
+          <h2 className="text-3xl md:text-4xl font-bold leading-tight text-[#003327]">
             Kami membantu masyarakat
             menangani masalah sampah
             secara cepat dan terarah.
@@ -137,7 +145,7 @@ const LandingPage = () => {
     </section>
 
     {/* HOW IT WORKS SECTION */}
-    <section className='w-full py-20 px-6 md:px-20s'></section>
+    <HowItWorks/>
 
     {/* TESTIMONI SECTION */}
     <section className='w-full py-20 px-6 md:px-20'>
@@ -146,24 +154,24 @@ const LandingPage = () => {
 
     {/* BANNER SECTION */}
     <section className='w-full py-20 px-6 md:px-20'>
-      <div className='py-25 bg-[#BDFF61] rounded-2xl flex justify-between'>
-        <div className='p-8'>
-          <h2 className='text-3xl md:text-4xl font-bold leading-tight'>Jadi bagian dari solusi</h2>
-          <p className=''>Lingkungan membaik saat kita ikut bergerak, bukan hanya melihat.</p>
-          <button className="cursor-pointer flex items-center gap-2 hover:gap-4 bg-[#CCFFF3] text-[#00664E] px-5 py-3 rounded-lg hover:bg-[#99FFE7] transition-all duration-300">
-            <Send size={20}/>
-            Mulai Laporkan Sekarang
-          </button>
+        <div className='py-12 md:py-25 bg-[#BDFF61] rounded-2xl flex flex-col md:flex-row justify-between items-center px-8'> 
+          <div className='p-0 md:p-8 text-center md:text-left'>
+            <h2 className='text-3xl md:text-4xl font-bold text-[#003327] leading-tight'>Jadi bagian dari solusi</h2>
+            <p className='mt-2 mb-10 text-[#003327]'>Lingkungan membaik saat kita ikut bergerak, bukan hanya melihat.</p>
+            <button className="cursor-pointer flex items-center justify-center md:justify-start gap-2 hover:gap-4 bg-[#009A76] text-white px-5 py-3 rounded-lg hover:bg-[#008163] transition-all duration-300 w-full md:w-auto">
+              <Send size={20}/>
+              Mulai Laporkan Sekarang
+            </button>
+          </div>
+
+          <img
+              src={BannerImg}
+              alt="Banner illustration"
+              className="w-[250px] md:w-[420px] mt-8 md:mt-0"
+            />
         </div>
 
-         <img
-            src={BannerImg}
-            alt="About us illustration"
-            className="w-[350px] md:w-[420px]"
-          />
-      </div>
-
-    </section>
+      </section>
     </div>
   )
 }
