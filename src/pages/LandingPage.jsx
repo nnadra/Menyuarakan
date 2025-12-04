@@ -1,22 +1,24 @@
 import React from 'react'
+import { motion } from "framer-motion";
+import { Send } from 'lucide-react';
+
 import Card1 from '../assets/images/card-1.svg'
 import Card2 from '../assets/images/card-2.svg'
 import Card3 from '../assets/images/card-3.svg'
-import { motion } from "framer-motion";
 import AboutUsImg from '../assets/images/aboutUsImg.svg'
+import BannerImg from '../assets/images/bannerImg.svg'
 
 
 const LandingPage = () => {
   return (
     <div>
-    <div className="w-full flex flex-col items-center text-center font-sans mt-18 mb-15 px-4">
+      {/* HERO SECTION */}
+    <section className="w-full flex flex-col items-center text-center font-sans mt-18 mb-15 px-4">
 
-      {/* TITLE */}
       <h1 className="text-[44px] leading-tight font-semibold text-green-900">
         Dorong perubahan untuk lingkungan, <br /> mulai dari laporanmu.
       </h1>
 
-      {/* DESCRIPTION */}
       <p className="text-gray-500 mt-6 max-w-2xl">
         Mulai dari satu foto, laporanmu bisa bantu memperbaiki lingkungan,
         meningkatkan kesadaran, dan mendorong tindakan nyata di lingkungan kamu.
@@ -33,7 +35,7 @@ const LandingPage = () => {
       {/* CARDS WRAPPER */}
       <div className="relative flex items-center justify-center mt-18">
 
-        {/* CARD 1 */}
+
         <div className="
          rounded-3xl
           w-[320px] rotate-[-8deg]
@@ -43,7 +45,7 @@ const LandingPage = () => {
           <img src={Card1} alt="Card1" className="w-full" />
         </div>
 
-        {/* CARD 2 */}
+
         <div className="
         rounded-3xl
           w-[330px] z-10
@@ -53,7 +55,7 @@ const LandingPage = () => {
           <img src={Card2} alt="Card2" className="w-full" />
         </div>
 
-        {/* CARD 3 */}
+
         <div className="
             rounded-3xl
             w-[320px] rotate-[8deg]
@@ -64,7 +66,7 @@ const LandingPage = () => {
         </div>
 
       </div>
-        </div>
+        </section>
 
 
     {/* ABOUT SECTION */}
@@ -83,7 +85,7 @@ const LandingPage = () => {
             About Us
           </span>
 
-          <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+          <h2 className="text-3xl md:text-4xl font-bold leading-tight text-green-900">
             Kami membantu masyarakat
             menangani masalah sampah
             secara cepat dan terarah.
@@ -131,8 +133,36 @@ const LandingPage = () => {
             laporan mudah dengan <br /> “Menyuarakan”
           </motion.div>
         </motion.div>
-
       </div>
+    </section>
+
+    {/* HOW IT WORKS SECTION */}
+    <section className='w-full py-20 px-6 md:px-20s'></section>
+
+    {/* TESTIMONI SECTION */}
+    <section className='w-full py-20 px-6 md:px-20'>
+
+    </section>
+
+    {/* BANNER SECTION */}
+    <section className='w-full py-20 px-6 md:px-20'>
+      <div className='py-25 bg-[#BDFF61] rounded-2xl flex justify-between'>
+        <div className='p-8'>
+          <h2 className='text-3xl md:text-4xl font-bold leading-tight'>Jadi bagian dari solusi</h2>
+          <p className=''>Lingkungan membaik saat kita ikut bergerak, bukan hanya melihat.</p>
+          <button className="cursor-pointer flex items-center gap-2 hover:gap-4 bg-[#CCFFF3] text-[#00664E] px-5 py-3 rounded-lg hover:bg-[#99FFE7] transition-all duration-300">
+            <Send size={20}/>
+            Mulai Laporkan Sekarang
+          </button>
+        </div>
+
+         <img
+            src={BannerImg}
+            alt="About us illustration"
+            className="w-[350px] md:w-[420px]"
+          />
+      </div>
+
     </section>
     </div>
   )
