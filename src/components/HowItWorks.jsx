@@ -20,7 +20,7 @@ const CardItem = React.memo(({ data, setRef }) => {
     return (
         <div 
             ref={(el) => setRef(id, 'item', el)} 
-            className="relative h-[170px] md:h-[320px] lg:h-[450px] w-full overflow-hidden border-b-white border-b-4 shrink-0 mb-0" 
+            className="relative h-[170px] md:h-80 lg:h-[450px] w-full overflow-hidden border-b-white border-b-4 shrink-0 mb-0" 
         > 
             
             <div className="absolute inset-0 flex items-center justify-center p-0 bg-white">

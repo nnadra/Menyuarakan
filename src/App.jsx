@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css'
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
 import LandingPage from './pages/LandingPage.jsx';
+import ReportPage from './pages/ReportPage.jsx';
 
 function App() {
 
@@ -10,15 +11,20 @@ function App() {
   //kalau kita 'npm run dev' nanti dia bakal running file ini
   //jadi kita import component yang kita mau pake disini, kita buat routing disini
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar />
+    <Router>
+      <div className="min-h-screen flex flex-col">
+        <Navbar />
 
-      <div className="flex-1">
-        <LandingPage />
+          <div className="flex-1">
+            <Routes>
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/report" element={<ReportPage />} />
+            </Routes>
+          </div>
+
+        <Footer />
       </div>
-
-      <Footer />
-    </div>
+    </Router>
   )
 }
 
