@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from "framer-motion";
-import { Send, Mouse } from 'lucide-react';
-
+import { Send, Mouse, ArrowRight } from 'lucide-react';
+import { Link } from "react-router-dom";
 import Card1 from '../assets/images/card-1.svg'
 import Card2 from '../assets/images/card-2.svg'
 import Card3 from '../assets/images/card-3.svg'
@@ -99,10 +99,16 @@ const LandingPage = () => {
             secara cepat dan terarah.
           </h2>
 
-          <p className="text-gray-700 text-lg leading-relaxed">
+          <p className="text-gray-700 text-lg leading-relaxed mb-14">
             Platform yang membantu kamu menyuarakan dan menjaga lingkungan
             dengan cara paling sederhana
           </p>
+          <Link to="/categories" className="block w-full md:w-auto mx-auto">
+          <button className="cursor-pointer flex items-center justify-center md:justify-start gap-2 hover:gap-4 bg-[#009A76] text-white px-5 py-3 rounded-lg hover:bg-[#008163] transition-all duration-300 w-full md:w-auto">
+              Lihat Kategori Sampah
+              <ArrowRight/>
+          </button>
+          </Link>
         </motion.div>
 
         {/* RIGHT IMAGE + FLOATING BUBBLE */}

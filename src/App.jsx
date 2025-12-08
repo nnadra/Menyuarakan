@@ -4,6 +4,7 @@ import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
 import LandingPage from './pages/LandingPage.jsx';
 import ReportPage from './pages/ReportPage.jsx';
+import CategoriesPage from './pages/CategoriesPage.jsx';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
             <Routes>
               <Route path="/" element={<LandingPage />} />
               <Route path="/report" element={<ReportPage />} />
+              <Route path="/categories" element={<CategoriesPage />} />
             </Routes>
           </div>
 
