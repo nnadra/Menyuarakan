@@ -1,17 +1,18 @@
 import { Send } from 'lucide-react';
+import Logo from '../assets/images/logo-white-menyuarakan.svg';
 
 const Footer = () => {
   return (
     <footer className="bg-[#009A76] text-white px-6 py-12 md:px-16 lg:px-24 font-sans">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 items-start">
 
         {/* Left: Logo + Quote */}
-        <div className="space-y-6">
+        <div className="space-y-6 order-1 md:order-1 lg:order-1">
           <div className="flex items-center gap-3">
             <img 
-              src="/logo.png" 
+              src={Logo}
               alt="Logo Menyuarakan" 
-              className="w-12 h-12 object-contain"
+              className="w-16 h-16 object-contain"
             />
             <span className="text-2xl font-bold">Menyuarakan</span>
           </div>
@@ -22,7 +23,7 @@ const Footer = () => {
         </div>
 
         {/* Middle: Menu */}
-        <div className="space-y-6">
+        <div className="space-y-6 order-2 md:order-2 lg:order-2">
           <h3 className="text-xl font-semibold">Menu</h3>
           <ul className="space-y-2 text-md">
             <li><a href="#" className="hover:text-teal-200">Home</a></li>
@@ -33,7 +34,7 @@ const Footer = () => {
         </div>
 
         {/* Right: CTA */}
-        <div className="space-y-6">
+        <div className="space-y-6 order-3 md:col-span-2 md:order-3 lg:col-span-1 lg:order-3">
           <h3 className="text-3xl font-semibold leading-snug">
             Buat perubahan mulai dari satu laporan.
           </h3>

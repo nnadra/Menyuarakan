@@ -82,7 +82,7 @@ const LandingPage = () => {
 
     {/* ABOUT SECTION */}
     <section id='about' className="w-full py-20 px-6 md:px-20">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
         {/* LEFT TEXT */}
         <motion.div
@@ -90,9 +90,9 @@ const LandingPage = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="space-y-5"
+          className="space-y-5 text-center lg:text-start"
         >
-          <span className="bg-[#CCFFF3] px-4 py-2 rounded-full text-[#003327] w-fit block">
+          <span className="bg-[#CCFFF3] px-4 py-2 mx-auto lg:mx-0 rounded-full text-[#003327] w-fit block">
             About Us
           </span>
 
@@ -106,8 +106,8 @@ const LandingPage = () => {
             Platform yang membantu kamu menyuarakan dan menjaga lingkungan
             dengan cara paling sederhana
           </p>
-          <Link to="/categories" className="block w-full md:w-auto mx-auto">
-          <button className="cursor-pointer flex items-center justify-center md:justify-start gap-2 hover:gap-4 bg-[#009A76] text-white px-5 py-3 rounded-lg hover:bg-[#008163] transition-all duration-300 w-full md:w-auto">
+          <Link to="/categories" className="block w-full lg:w-auto mx-auto">
+          <button className="cursor-pointer flex items-center justify-center mx-auto lg:mx-0 lg:justify-start gap-2 hover:gap-4 bg-[#009A76] text-white px-5 py-3 rounded-lg hover:bg-[#008163] transition-all duration-300 w-full md:w-auto">
               Lihat Kategori Sampah
               <ArrowRight/>
           </button>
@@ -154,19 +154,16 @@ const LandingPage = () => {
     </section>
 
     {/* HOW IT WORKS SECTION */}
-    <section id='howitworks'>
       <HowItWorks/>
-    </section>
 
-    <section>
+    {/* TESTIMONIAL SECTION */}
       <Testimoni/>
-    </section>
 
 
     {/* BANNER SECTION */}
-    <section id='banner' className='w-full py-20 px-6 md:px-20'>
-        <div className='py-12 md:py-25 bg-[#BDFF61] rounded-2xl flex flex-col md:flex-row justify-between items-center px-8'> 
-          <div className='p-0 md:p-8 text-center md:text-left'>
+    <section id="banner" className='w-full py-10 md:py-20 px-6 md:px-10'>
+        <div className='py-10 px-10 md:px-2 lg:px-12  bg-[#BDFF61] rounded-2xl flex flex-col md:flex-row justify-between items-center'> 
+          <div className='p-0 md:p-8 mt-8 md:mt-0 text-center max-w-md md:text-left order-2 md:order-1'>
             <h2 className='text-3xl md:text-4xl font-bold text-[#003327] leading-tight'>Jadi bagian dari solusi</h2>
             <p className='mt-2 mb-10 text-[#003327]'>Lingkungan membaik saat kita ikut bergerak, bukan hanya melihat.</p>
             <button
@@ -181,7 +178,7 @@ const LandingPage = () => {
           <img
               src={BannerImg}
               alt="Banner illustration"
-              className="w-[250px] md:w-[420px] mt-8 md:mt-0"
+              className="w-[250px] lg:w-[420px] order-1 md:order-2"
             />
         </div>
 

@@ -50,7 +50,7 @@ CardItem.displayName = 'CardItem';
 
 
 const HowItWorks = () => {
-    const sectionRef = useRef(null);
+    const wrapperRef = useRef(null);
     const containerRef = useRef(null);
     const allRefs = useRef({}); 
     
@@ -76,6 +76,7 @@ const HowItWorks = () => {
 
 
     useLayoutEffect(() => {
+        const wrapper = wrapperRef.current;
         const container = containerRef.current;
         const data = howItWorksData;
         const refs = allRefs.current;
@@ -98,15 +99,14 @@ const HowItWorks = () => {
             const scrollDurationPerCard = window.innerHeight * 0.8; 
             const totalScrollHeight = data.length * scrollDurationPerCard; 
 
-
             const masterTl = gsap.timeline({
                 immediateRender: false,
                 scrollTrigger: {
-                    trigger: sectionRef.current,
+                    trigger: wrapper,
                     start: "top 80", 
                     end: `+=${totalScrollHeight}`, 
                     scrub: 1, 
-                    pin: container, 
+                    pin: wrapper, 
                     pinSpacing: true,
                     onLeaveBack: () => ScrollTrigger.refresh(),
                     onEnterBack: () => ScrollTrigger.refresh(),
@@ -147,7 +147,6 @@ const HowItWorks = () => {
             });
 
         } else {
-            
             data.forEach((cardData, i) => {
                 const item = refs[cardData.id].item;
                 const cover = refs[cardData.id].cover;
@@ -161,7 +160,7 @@ const HowItWorks = () => {
                 gsap.timeline({
                     scrollTrigger: {
                         trigger: item,
-                        start: "top center", 
+                        start: "top bottom+=150", 
                     }
                 })
                 .to(title, { opacity: 0, duration: 0.3 })
@@ -178,15 +177,13 @@ const HowItWorks = () => {
 
 
     return (
-        <section ref={sectionRef} className="w-full"> 
-            <div ref={containerRef} className="flex flex-col">
-                {howItWorksData.map((data) => (
-                    <CardItem 
-                        key={data.id} 
-                        data={data} 
-                        setRef={setRef} 
-                    />
+        <section id="howitworks" className="w-full">
+            <div ref={wrapperRef} className="relative overflow-hidden md:h-screen">
+                <div ref={containerRef} className="flex flex-col">
+                {howItWorksData.map((d) => (
+                    <CardItem key={d.id} data={d} setRef={setRef} />
                 ))}
+                </div>
             </div>
         </section>
     );

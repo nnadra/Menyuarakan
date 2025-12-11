@@ -33,3 +33,35 @@ html {
   font-family: var(--font-sans);
   font-weight: 500;
 }
+
+.infinite-scroll-up {
+  animation: scroll-up linear infinite;
+}
+
+.infinite-scroll-down {
+  animation: scroll-down linear infinite;
+}
+
+@keyframes scroll-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes scroll-down {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.infinite-scroll-up:hover,
+.infinite-scroll-down:hover {
+  cursor: pointer;
+  animation-play-state: paused;
+}

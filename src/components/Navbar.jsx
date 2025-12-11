@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import { Menu, X } from 'lucide-react'; 
-
+import Logo from '../assets/images/logo-menyuarakan.svg';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,7 +10,7 @@ const Navbar = () => {
   { label: "Home", type: "route", target: "/" },
   { label: "About Us", type: "scroll", target: "about" },
   { label: "How it Works", type: "scroll", target: "howitworks" },
-  { label: "Laporkan Sampah", type: "route", target: "/report" },
+  { label: "Laporkan Sampah", type: "scroll", target: "banner" },
 ];
 
 
@@ -31,12 +31,19 @@ const Navbar = () => {
     <div className="sticky top-0 z-50 bg-white">
       
       {/* Header Navbar */}
-      <div className="flex items-center justify-between px-6 md:px-10 py-5 font-sans">
+      <div className="flex items-center justify-between px-6 md:px-16 py-5 font-sans">
 
         {/* Logo */}
-        <div className="bg-lime-100 px-6 py-3 rounded-xl transition-all duration-300 hover:scale-[1.03] hover:shadow-md">
-          <h1 className="text-green-900 font-semibold text-lg tracking-wide">LOGO</h1>
-        </div>
+        <Link
+        to="/"
+        className="cursor-pointer transition-all duration-300 hover:text-green-700 relative"
+        >
+            <img 
+              src={Logo}
+              alt="Logo Menyuarakan" 
+              className="w-16 h-16 object-contain"
+            />
+        </Link>
 
         {/* Menu Desktop */}
         <div className="hidden md:flex items-center gap-12 text-lg text-black">
