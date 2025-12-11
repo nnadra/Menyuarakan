@@ -1,20 +1,23 @@
 import React from 'react'
 import { motion } from "framer-motion";
 import { Send, Mouse, ArrowRight } from 'lucide-react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Card1 from '../assets/images/card-1.svg'
 import Card2 from '../assets/images/card-2.svg'
 import Card3 from '../assets/images/card-3.svg'
 import AboutUsImg from '../assets/images/aboutUsImg.svg'
 import BannerImg from '../assets/images/bannerImg.svg'
 import HowItWorks from '../components/HowItWorks';
+import Testimoni from '../components/Testimoni';
 
 
 const LandingPage = () => {
+  const navigate = useNavigate();
+
   return (
     <div>
       {/* HERO SECTION */}
-    <section className="w-full flex flex-col items-center text-center font-sans py-16 md:py-24 px-4">
+    <section id='hero' className="w-full flex flex-col items-center text-center font-sans py-16 md:py-24 px-4">
 
         <h1 className="text-[32px] md:text-[44px] leading-tight font-semibold text-[#003327]">
           Dorong perubahan untuk lingkungan, <br className="hidden md:block" /> mulai dari laporanmu.
@@ -78,7 +81,7 @@ const LandingPage = () => {
 
 
     {/* ABOUT SECTION */}
-    <section className="w-full py-20 px-6 md:px-20">
+    <section id='about' className="w-full py-20 px-6 md:px-20">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
         {/* LEFT TEXT */}
@@ -151,20 +154,25 @@ const LandingPage = () => {
     </section>
 
     {/* HOW IT WORKS SECTION */}
-    <HowItWorks/>
-
-    {/* TESTIMONI SECTION */}
-    <section className='w-full py-20 px-6 md:px-20'>
-
+    <section id='howitworks'>
+      <HowItWorks/>
     </section>
 
+    <section>
+      <Testimoni/>
+    </section>
+
+
     {/* BANNER SECTION */}
-    <section className='w-full py-20 px-6 md:px-20'>
+    <section id='banner' className='w-full py-20 px-6 md:px-20'>
         <div className='py-12 md:py-25 bg-[#BDFF61] rounded-2xl flex flex-col md:flex-row justify-between items-center px-8'> 
           <div className='p-0 md:p-8 text-center md:text-left'>
             <h2 className='text-3xl md:text-4xl font-bold text-[#003327] leading-tight'>Jadi bagian dari solusi</h2>
             <p className='mt-2 mb-10 text-[#003327]'>Lingkungan membaik saat kita ikut bergerak, bukan hanya melihat.</p>
-            <button className="cursor-pointer flex items-center justify-center md:justify-start gap-2 hover:gap-4 bg-[#009A76] text-white px-5 py-3 rounded-lg hover:bg-[#008163] transition-all duration-300 w-full md:w-auto">
+            <button
+              onClick={() => navigate("/report")}
+              className="cursor-pointer flex items-center justify-center md:justify-start gap-2 hover:gap-4 bg-[#009A76] text-white px-5 py-3 rounded-lg hover:bg-[#008163] transition-all duration-300 w-full md:w-auto"
+            >
               <Send size={20}/>
               Mulai Laporkan Sekarang
             </button>

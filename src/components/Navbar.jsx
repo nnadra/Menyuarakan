@@ -1,55 +1,79 @@
 import React, { useState } from 'react';
-import { Menu, X, Send } from 'lucide-react'; 
+import { Link, useNavigate } from "react-router-dom";
+import { Menu, X } from 'lucide-react'; 
+
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const menuItems = ["Home", "About Us", "How it Works", "Laporkan Sampah"];
+  const menuItems = [
+  { label: "Home", type: "route", target: "/" },
+  { label: "About Us", type: "scroll", target: "about" },
+  { label: "How it Works", type: "scroll", target: "howitworks" },
+  { label: "Laporkan Sampah", type: "route", target: "/report" },
+];
+
+
+  const navigate = useNavigate();
+
+  const goToSection = (id) => {
+    if (window.location.pathname !== '/') {
+       navigate("/");
+    setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }, 300);
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }
+  }
 
   return (
     <div className="sticky top-0 z-50 bg-white">
+      
+      {/* Header Navbar */}
       <div className="flex items-center justify-between px-6 md:px-10 py-5 font-sans">
 
         {/* Logo */}
         <div className="bg-lime-100 px-6 py-3 rounded-xl transition-all duration-300 hover:scale-[1.03] hover:shadow-md">
-          <h1 className="text-green-900 font-semibold text-lg tracking-wide">
-            LOGO
-          </h1>
+          <h1 className="text-green-900 font-semibold text-lg tracking-wide">LOGO</h1>
         </div>
 
         {/* Menu Desktop */}
         <div className="hidden md:flex items-center gap-12 text-lg text-black">
-          
-          {menuItems.map((item) => (
-            <span
-              key={item}
-              className="
-                relative cursor-pointer 
-                transition-all duration-300 
-                hover:text-green-700
-              "
-            >
-              {item}
+          {menuItems.map((item) => {
+            if (item.type === "route") {
+              return (
+                <Link
+                  key={item.label}
+                  to={item.target}
+                  className="cursor-pointer transition-all duration-300 hover:text-green-700 relative"
+                >
+                  {item.label}
+                </Link>
+              );
+            }
 
-              {/* Animated underline */}
-              <span
-                className="
-                  absolute left-0 -bottom-1 
-                  w-0 h-0.5 bg-green-700 
-                  transition-all duration-300 
-                  group-hover:w-full
-                "
-              />
-            </span>
-          ))}
+            if (item.type === "scroll") {
+              return (
+                <button
+                  key={item.label}
+                  onClick={() => goToSection(item.target)}
+                  className="cursor-pointer bg-transparent border-none transition-all duration-300 hover:text-green-700 relative"
+                >
+                  {item.label}
+                </button>
+              );
+            }
 
+            return null;
+          })}
         </div>
+
 
         {/* Auth Buttons Desktop */}
         <div className="hidden md:flex items-center gap-4">
-
-          {/* Sign up */}
-          <button
+          <Link
+            to="/signup"
             className="
               px-6 py-2 rounded-full border border-green-800 text-green-800 
               transition-all duration-300
@@ -59,10 +83,10 @@ const Navbar = () => {
             "
           >
             Sign up
-          </button>
+          </Link>
 
-          {/* Sign in */}
-          <button
+          <Link
+            to="/signin"
             className="
               px-6 py-2 rounded-full bg-lime-100 text-green-800
               transition-all duration-300
@@ -71,11 +95,10 @@ const Navbar = () => {
             "
           >
             Sign in
-          </button>
-
+          </Link>
         </div>
 
-        {/* Hamburger Menu (Mobile) */}
+        {/* Hamburger Menu */}
         <button 
           className="md:hidden text-green-900 focus:outline-none"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -85,51 +108,69 @@ const Navbar = () => {
 
       </div>
 
-      <div 
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
-        }`}
-      >
-        <div className="flex flex-col items-start px-8 py-4 space-y-4 border-t border-gray-100 bg-white">
-          
-          {/* Menu Items Mobile */}
-          {menuItems.map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase().replace(/\s/g, '-')}`} // Contoh link
-              className="text-lg font-medium text-black hover:text-green-700 w-full py-1 transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {item}
-            </a>
-          ))}
+      {/* Mobile Dropdown */}
+    <div 
+      className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+        isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+      }`}
+    >
+      <div className="flex flex-col items-start px-8 py-4 space-y-4 border-t border-gray-100 bg-white">
 
-          {/* Auth Buttons Mobile (Full width) */}
-          <div className="pt-4 space-y-3 w-full">
-            <button
-              className="
-                w-full px-4 py-2 rounded-full border border-green-800 text-green-800 
-                transition-all duration-300 text-center
-                hover:bg-green-800 hover:text-white
-              "
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Sign up
-            </button>
-            <button
-              className="
-                w-full px-4 py-2 rounded-full bg-lime-100 text-green-800
-                transition-all duration-300 text-center
-                hover:bg-lime-200
-              "
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Sign in
-            </button>
-          </div>
+        {menuItems.map((item) => {
+          if (item.type === "route") {
+            return (
+              <Link
+                key={item.label}
+                to={item.target}
+                className="text-lg font-medium text-black hover:text-green-700 w-full py-1 transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            );
+          }
+
+          if (item.type === "scroll") {
+            return (
+              <button
+                key={item.label}
+                onClick={() => {
+                  goToSection(item.target);
+                  setIsMenuOpen(false);
+                }}
+                className="text-left text-lg font-medium text-black hover:text-green-700 w-full py-1 transition-colors"
+              >
+                {item.label}
+              </button>
+            );
+          }
+
+          return null;
+        })}
+
+        <div className="pt-4 space-y-3 w-full">
+
+          <Link
+            to="/signup"
+            className="w-full block text-center px-4 py-2 rounded-full border border-green-800 text-green-800 transition-all duration-300 hover:bg-green-800 hover:text-white"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Sign up
+          </Link>
+
+          <Link
+            to="/signin"
+            className="w-full block text-center px-4 py-2 rounded-full bg-lime-100 text-green-800 transition-all duration-300 hover:bg-lime-200"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Sign in
+          </Link>
 
         </div>
+
       </div>
+    </div>
+
     </div>
   );
 };

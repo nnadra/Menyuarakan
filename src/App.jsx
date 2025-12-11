@@ -5,12 +5,11 @@ import Footer from './components/Footer.jsx';
 import LandingPage from './pages/LandingPage.jsx';
 import ReportPage from './pages/ReportPage.jsx';
 import CategoriesPage from './pages/CategoriesPage.jsx';
+import SignInPage from './pages/SignIn.jsx';
+import SignUpPage from './pages/SignUp.jsx';
 
 function App() {
 
-  //Jadi ini buat route kita dit
-  //kalau kita 'npm run dev' nanti dia bakal running file ini
-  //jadi kita import component yang kita mau pake disini, kita buat routing disini
   return (
     <Router>
       <div className="min-h-screen flex flex-col">
@@ -21,6 +20,8 @@ function App() {
               <Route path="/" element={<LandingPage />} />
               <Route path="/report" element={<ReportPage />} />
               <Route path="/categories" element={<CategoriesPage />} />
+              <Route path="/signin" element={<SignInPage />} />
+              <Route path="/signup" element={<SignUpPage />} />
             </Routes>
           </div>
 

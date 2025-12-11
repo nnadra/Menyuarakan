@@ -37,7 +37,9 @@ const Footer = () => {
           <h3 className="text-3xl font-semibold leading-snug">
             Buat perubahan mulai dari satu laporan.
           </h3>
-          <button className="cursor-pointer flex items-center gap-2 hover:gap-4 bg-[#CCFFF3] text-[#00664E] px-5 py-3 rounded-lg hover:bg-[#99FFE7] transition-all duration-300">
+          <button 
+            onClick={() => Navigate('/report')}
+            className="cursor-pointer flex items-center gap-2 hover:gap-4 bg-[#CCFFF3] text-[#00664E] px-5 py-3 rounded-lg hover:bg-[#99FFE7] transition-all duration-300">
             <Send size={20}/>
             Mulai Laporkan Sekarang
           </button>
