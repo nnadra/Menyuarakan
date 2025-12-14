@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { HashRouter as Router, Routes, Route } from 'react-router-dom's
 import './App.css'
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
@@ -12,7 +12,7 @@ import SignUpPage from './pages/SignUp.jsx';
 function App() {
 
   return (
-    <Router basename="/Menyuarakan">
+    <Router>
       <div className="min-h-screen flex flex-col">
         <Navbar />
 
