@@ -12,7 +12,7 @@ import SignUpPage from './pages/SignUp.jsx';
 function App() {
 
   return (
-    <Router>
+    <Router basename="/Menyuarakan">
       <div className="min-h-screen flex flex-col">
         <Navbar />
 
