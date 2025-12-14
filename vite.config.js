@@ -9,10 +9,4 @@ export default defineConfig({
     tailwindcss(),
   ],
   base: '/Menyuarakan/',
-
-  extend: {
-    fontFamily: {
-
-    }
-  }
 })
