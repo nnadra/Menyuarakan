@@ -5,6 +5,7 @@ import Footer from './components/Footer.jsx';
 import LandingPage from './pages/LandingPage.jsx';
 import ReportPage from './pages/ReportPage.jsx';
 import CategoriesPage from './pages/CategoriesPage.jsx';
+import DashboardPage from './pages/Dashboard.jsx';
 import SignInPage from './pages/SignIn.jsx';
 import SignUpPage from './pages/SignUp.jsx';
 
@@ -22,6 +23,7 @@ function App() {
               <Route path="/categories" element={<CategoriesPage />} />
               <Route path="/signin" element={<SignInPage />} />
               <Route path="/signup" element={<SignUpPage />} />
+              <Route path="/dashboard" element={<DashboardPage />} />
             </Routes>
           </div>
 

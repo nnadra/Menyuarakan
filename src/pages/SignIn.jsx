@@ -1,8 +1,17 @@
-import React from 'react'
 import GoogleIcon from '../assets/images/icons/google-icon.svg'
 import AppleIcon from '../assets/images/icons/apple-icon.svg'
+import { Link,useNavigate } from "react-router-dom";
+import React, { useEffect } from 'react'
+
 
 const SignIn = () => {
+  const navigate = useNavigate();
+  
+  const handleSubmit = () => {
+    localStorage.setItem("isLogin", "true");
+    navigate("/");
+  };
+
   return (
     <div className="w-full max-w-md mx-auto flex flex-col items-center text-center py-10">
 
@@ -54,15 +63,19 @@ const SignIn = () => {
 
   {/* Button */}
   <button
-    type="submit"
-    className="w-full bg-[#009A76] text-white py-3 rounded-xl font-medium text-sm hover:bg-[#008163] transition"
-  >
-    Password
-  </button>
+  type="submit"
+  onClick={handleSubmit}
+  className="w-full bg-[#009A76] text-white py-3 rounded-xl"
+>
+  Submit
+</button>
+
 
   {/* Sign Up */}
   <p className="text-sm mt-4 text-[#111]">
-    Don’t have an account? <span className="font-semibold cursor-pointer">Sign Up</span>
+    Don’t have an account? <Link to="/signup" className="font-semibold cursor-pointer">
+  Sign Up
+</Link>
   </p>
 
 </div>

@@ -1,6 +1,7 @@
 import React from 'react'
 import GoogleIcon from '../assets/images/icons/google-icon.svg'
 import AppleIcon from '../assets/images/icons/apple-icon.svg'
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   return (
@@ -66,12 +67,14 @@ const SignUp = () => {
     type="submit"
     className="w-full bg-[#009A76] text-white py-3 rounded-xl font-medium text-sm hover:bg-[#008163] transition"
   >
-    Password
+    Submit
   </button>
 
   {/* Sign Up */}
   <p className="text-sm mt-4 text-[#111]">
-    Already have an account?  <span className="font-semibold cursor-pointer">Sign In</span>
+    Already have an account?  <Link to="/signin" className="font-semibold cursor-pointer">
+  Sign In
+</Link>
   </p>
 
 </div>

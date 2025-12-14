@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from "react-router-dom";
+
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Menu, X } from 'lucide-react'; 
 import Logo from '../assets/images/logo-menyuarakan.svg';
+import React, { useState, useEffect } from 'react';
+import { UserCircle } from 'lucide-react';
+
 
 const Navbar = () => {
+
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const [isLogin, setIsLogin] = useState(false);
+
 
   const menuItems = [
   { label: "Home", type: "route", target: "/" },
@@ -13,8 +21,13 @@ const Navbar = () => {
   { label: "Laporkan Sampah", type: "scroll", target: "banner" },
 ];
 
-
   const navigate = useNavigate();
+
+  const location = useLocation();
+  useEffect(() => {
+  setIsLogin(localStorage.getItem("isLogin") === "true");
+}, [location.pathname]);
+
 
   const goToSection = (id) => {
     if (window.location.pathname !== '/') {
@@ -79,31 +92,22 @@ const Navbar = () => {
 
         {/* Auth Buttons Desktop */}
         <div className="hidden md:flex items-center gap-4">
-          <Link
-            to="/signup"
-            className="
-              px-6 py-2 rounded-full border border-green-800 text-green-800 
-              transition-all duration-300
-              hover:bg-green-800 hover:text-white 
-              hover:-translate-y-0.5
-              active:translate-y-0
-            "
-          >
-            Sign up
-          </Link>
-
-          <Link
-            to="/signin"
-            className="
-              px-6 py-2 rounded-full bg-lime-100 text-green-800
-              transition-all duration-300
-              hover:bg-lime-200 hover:-translate-y-0.5
-              active:translate-y-0
-            "
-          >
-            Sign in
-          </Link>
+          {isLogin ? (
+            <Link to="/dashboard">
+              <UserCircle size={32} />
+            </Link>
+          ) : (
+            <>
+              <Link  to="/signup" className="px-6 py-2 rounded-full border border-green-800 text-green-800">
+                Sign up
+              </Link>
+              <Link to="/signin" className="px-6 py-2 rounded-full bg-lime-100 text-green-800">
+                Sign in
+              </Link>
+            </>
+          )}
         </div>
+
 
         {/* Hamburger Menu */}
         <button 
